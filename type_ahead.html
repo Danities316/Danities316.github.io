@@ -6,47 +6,50 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+  <div class="form-text"><h2>
+    Searching for state or capital of states in Nigeria
+  </h2></div>
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
     <ul class="suggestions">
-      <li>Filter for a city</li>
+      <li>Filter for a LGA</li>
       <li>or a state</li>
     </ul>
   </form>
 <script>
-
+//const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 const endpoint = 'https://danities316.github.io/data/town.json';
+const town = [];
 
-const cities = [];
 fetch(endpoint)
-  .then(blob => blob.json())
-  .then(data => cities.push(...data));
+.then(blob =>blob.json())
+.then(data => town.push(...data))
+.catch(err => console.log(err));
 
-function findMatches(wordToMatch, cities) {
-  return cities.filter(place => {
-    // here we need to figure out if the city or state matches what was searched
+function findStates(wordToMatch, town){
+   return town.filter(lga => {
     const regex = new RegExp(wordToMatch, 'gi');
-    return place.state.match(regex) || place.lgas.match(regex)
-  });
+    return lga.state.match(regex) || lga.lgas.match(regex);
+  })
 }
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+function numberWithCommas(y){
+  return y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-function displayMatches() {
-  const matchArray = findMatches(this.value, cities);
-  const html = matchArray.map(place => {
+function displayMatches(){
+  const matchArray = findStates(this.value, town);
+  const html = matchArray.map(lga =>{
     const regex = new RegExp(this.value, 'gi');
-    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+    const lgaName = lga.state.replace(regex, `<span class='hl'> ${this.value} </span>`)
+    const stateName = lga.lgas.replace(regex, `<span class='hl'> ${this.value} </span>`)
     return `
-      <li>
-        <span class="name">${cityName}, ${stateName}</span>
-        <span class="population">${numberWithCommas(place.population)}</span>
-      </li>
+    <li>
+      <span class = "name">${lgaName}, ${stateName}</span>
+     
+    </li>
     `;
+
   }).join('');
   suggestions.innerHTML = html;
 }
@@ -58,5 +61,5 @@ searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
 
 </script>
-  </body>
+</body>
 </html>

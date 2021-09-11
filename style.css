@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background: #ffc600;
+  background: #ff42aa;
   font-family: 'helvetica neue';
   font-size: 20px;
   font-weight: 200;
@@ -18,6 +18,12 @@ input {
 .search-form {
   max-width: 400px;
   margin: 50px auto;
+}
+.form-text{
+  color: white;
+  display: flex;
+ justify-content: center;
+margin-bottom: -48px;
 }
 
 input.search {

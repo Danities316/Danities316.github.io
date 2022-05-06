@@ -2,3 +2,6 @@
 # Danities316.github.io
 Json Containing Nigerian State and LGA
 Names of cities in Nigeria with their LGA
+A sample project to play along and master what o have been learning
+
+[Link to the project](Danities316.github.io)

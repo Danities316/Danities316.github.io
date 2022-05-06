@@ -78,3 +78,16 @@ span.population {
 .hl {
   background: #ffc600;
 }
+.btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #D8D8D8;
+  background-size: 24px;
+}
+.btn:hover{
+  color: blue;
+}

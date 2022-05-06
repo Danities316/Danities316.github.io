@@ -15,4 +15,4 @@ A sample project to play along and master what o have been learning
 
 ## Link to the project
 
-[](Danities316.github.io)
+[click here](Danities316.github.io)

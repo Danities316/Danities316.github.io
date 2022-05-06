@@ -10,6 +10,6 @@ A sample project to play along and master what o have been learning
 - HTML
 
 ## inspiration
-30 days Javascript with WesBos[https://javascript30.com/]
+[30 days Javascript with WesBos](https://javascript30.com/)
 
 [Link to the project](Danities316.github.io)
